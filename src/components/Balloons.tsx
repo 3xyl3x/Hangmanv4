@@ -1,9 +1,10 @@
 import Balloon from "./Ballon";
+interface BalloonsProps {
+	word: string;
+}
+export const Balloons = (props: BalloonsProps) => {
+	const { word } = props;
 
-export const Balloons = () => {
-	const handleClick = (e: any) => {
-		setClickedBallon(e.target.value);
-	};
 	const alphabet = [
 		"a",
 		"b",
@@ -39,7 +40,8 @@ export const Balloons = () => {
 	return (
 		<>
 			{alphabet.map((letter) => {
-				return <Balloon letter={letter} />;
+				let correct = word.includes(letter) ? true : false;
+				return <Balloon letter={letter} correct={correct} />;
 			})}
 		</>
 	);
