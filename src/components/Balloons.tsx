@@ -1,7 +1,6 @@
 import "./Balloons.css";
 import { useState } from "react";
 export const Balloons = () => {
-	const [clickedBalloon, setClickedBallon] = useState("");
 	const handleClick = (e: any) => {
 		setClickedBallon(e.target.value);
 	};
@@ -49,3 +48,5 @@ export const Balloons = () => {
 		</div>
 	);
 };
+
+export default Balloons;
