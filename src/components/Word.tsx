@@ -1,19 +1,23 @@
 interface WordProps {
-	word: string;
-	correctCharacters: string;
+  word: string;
+  correctCharacters: string;
 }
 
 export const Word = (props: WordProps) => {
-	const { word, correctCharacters } = props;
-	return (
-		<>
-			{word.split("").map((letter) => {
-				let show = correctCharacters.includes(letter) ? true : false;
+  const { word, correctCharacters } = props;
+  return (
+    <div className="word-container">
+      {word.split('').map((letter, index) => {
+        let show = correctCharacters.includes(letter);
 
-				return show ? letter : " _ ";
-			})}
-		</>
-	);
+        return (
+          <span key={index} className={`letter ${show ? 'show' : ''}`}>
+            {show ? letter : '_'}
+          </span>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Word;
