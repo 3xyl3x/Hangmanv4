@@ -8,11 +8,23 @@ import { getWord } from "./components/service";
 function App() {
 	const [fails, setFails] = useState<number>(0);
 	const [word, setWord] = useState<string>("");
-	const [correctCharacters, setCorrectCharactes] = useState<string>("abcdefg");
+	const [correctCharacters, setCorrectCharacters] = useState<string>("");
 
 	const getNewWord = async () => {
 		let response = await getWord();
 		setWord(response.data[0]);
+	};
+
+	const addCorrectCharacter = (letter: string) => {
+		setCorrectCharacters((prevCorrectCharacters) => {
+			return prevCorrectCharacters + letter;
+		});
+	};
+
+	const addFail = () => {
+		setFails((prevFails) => {
+			return prevFails + 1;
+		});
 	};
 
 	useEffect(() => {
@@ -26,7 +38,11 @@ function App() {
 					<h2>Hangman tha game {word}</h2>
 				</div>
 				<div className="col-12">
-					<Balloons word={word} />
+					<Balloons
+						word={word}
+						addCorrectCharacter={addCorrectCharacter}
+						addFail={addFail}
+					/>
 				</div>
 				<div className="col-12">
 					<Hangman fails={fails} />

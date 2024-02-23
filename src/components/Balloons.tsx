@@ -1,9 +1,11 @@
 import Balloon from "./Ballon";
 interface BalloonsProps {
 	word: string;
+	addCorrectCharacter(letter: string): void;
+	addFail(): void;
 }
 export const Balloons = (props: BalloonsProps) => {
-	const { word } = props;
+	const { word, addCorrectCharacter, addFail } = props;
 
 	const alphabet = [
 		"a",
@@ -41,7 +43,14 @@ export const Balloons = (props: BalloonsProps) => {
 		<>
 			{alphabet.map((letter) => {
 				let correct = word.includes(letter) ? true : false;
-				return <Balloon letter={letter} correct={correct} />;
+				return (
+					<Balloon
+						letter={letter}
+						correct={correct}
+						addCorrectCharacter={addCorrectCharacter}
+						addFail={addFail}
+					/>
+				);
 			})}
 		</>
 	);
