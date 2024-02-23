@@ -1,7 +1,17 @@
-export const Word = () => {
+interface WordProps {
+	word: string;
+	correctCharacters: string;
+}
+
+export const Word = (props: WordProps) => {
+	const { word, correctCharacters } = props;
 	return (
 		<>
-			<div></div>
+			{word.split("").map((letter) => {
+				let show = correctCharacters.includes(letter) ? true : false;
+
+				return show ? letter : " _ ";
+			})}
 		</>
 	);
 };

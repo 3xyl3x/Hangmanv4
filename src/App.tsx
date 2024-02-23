@@ -8,6 +8,7 @@ import { getWord } from "./components/service";
 function App() {
 	const [fails, setFails] = useState<number>(0);
 	const [word, setWord] = useState<string>("");
+	const [correctCharacters, setCorrectCharactes] = useState<string>("abcdefg");
 
 	const getNewWord = async () => {
 		let response = await getWord();
@@ -25,13 +26,13 @@ function App() {
 					<h2>Hangman tha game {word}</h2>
 				</div>
 				<div className="col-12">
-					<Balloons />
+					<Balloons word={word} />
 				</div>
 				<div className="col-12">
 					<Hangman fails={fails} />
 				</div>
 				<div className="col-12">
-					<Word />
+					<Word word={word} correctCharacters={correctCharacters} />
 				</div>
 			</div>
 		</>
