@@ -5,12 +5,13 @@ interface WordProps {
 
 export const Word = (props: WordProps) => {
 	const { word, correctCharacters } = props;
-
 	return (
 		<>
-			<div>
-				{word} - {correctCharacters}
-			</div>
+			{word.split("").map((letter) => {
+				let show = correctCharacters.includes(letter) ? true : false;
+
+				return show ? letter : " _ ";
+			})}
 		</>
 	);
 };

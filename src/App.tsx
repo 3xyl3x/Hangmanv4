@@ -8,7 +8,7 @@ import { getWord } from "./components/service";
 function App() {
 	const [fails, setFails] = useState<number>(0);
 	const [word, setWord] = useState<string>("");
-	const [correctCharacters, setCorrectCharactes] = useState<string>("");
+	const [correctCharacters, setCorrectCharactes] = useState<string>("abcdefg");
 
 	const getNewWord = async () => {
 		let response = await getWord();
