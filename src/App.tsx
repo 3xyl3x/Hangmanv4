@@ -7,12 +7,12 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-	const [fails, setFails] = useState<Number>(0);
+	const [fails, setFails] = useState<number>(6);
 
 	return (
 		<>
 			<Balloons />
-			<Hangman fails={0} />
+			<Hangman fails={fails} />
 			<Word />
 		</>
 	);
