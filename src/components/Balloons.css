@@ -1,0 +1,13 @@
+.balloon {
+    display:flex;
+    height: 50px;
+    width: 50px;
+    border: 10px;
+}
+.box{
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding:20px;
+}
