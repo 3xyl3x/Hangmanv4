@@ -1,5 +1,5 @@
-import "./Balloons.css";
-import { useState } from "react";
+import Balloon from "./Ballon";
+
 export const Balloons = () => {
 	const handleClick = (e: any) => {
 		setClickedBallon(e.target.value);
@@ -37,15 +37,11 @@ export const Balloons = () => {
 	];
 
 	return (
-		<div className="balloon">
-			{alphabet.map((word) => {
-				return (
-					<div className="box" key={word} onClick={handleClick}>
-						{word.toUpperCase()}
-					</div>
-				);
+		<>
+			{alphabet.map((letter) => {
+				return <Balloon letter={letter} />;
 			})}
-		</div>
+		</>
 	);
 };
 
